@@ -6,12 +6,14 @@ import Search1 from './pages/Search1'
 import AddPollutant from './pages/AddPollutant/AddPollutant';
 import AddProduct from './pages/AddProduct/AddProduct';
 import Header from './components/Header';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import ProtectInfo from './pages/ProtecInfo';
+import HeaderTest from './components/Header/HeaderTest';
 
 //import Search from './pages/search';
 
@@ -24,12 +26,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
+        <HeaderTest />
         <Switch>
           <Route exact path="/"><Home /></Route>
           <Route path="/addproduct"><AddProduct /></Route>
           <Route path="/addpollutant"><AddPollutant /></Route>
-          <Route path="/productinfo"></Route>
+          <Route path="/productinfo"><ProtectInfo /></Route>
         </Switch>
         <footer>footer</footer>
       </Router>

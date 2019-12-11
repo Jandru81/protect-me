@@ -1,0 +1,43 @@
+.nav-options {
+  display: flex;
+  flex-direction: row;
+  padding: 0%;
+  width: 100%;
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    padding: 0%;
+
+    li {
+      display: flex;
+      padding: 10px 30px;
+      text-decoration: none;
+      list-style: none;
+      
+      a:visited {
+        color: #4c4c4c;
+        text-decoration: none;        
+      }
+
+      a:link {
+        text-decoration: none;
+    }  
+
+      &:hover {
+        background-color: #5574AA;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 580px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul :last-child {
+    justify-content: flex-start;
+  }
+}

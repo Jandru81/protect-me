@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import '../Home/Home.scss'
 import { getAll } from '../../services/database';
+import Search1 from '../Search1/Search1';
+
+//import Search1 from '../Search1';
 
 // function Home() {
 //   const [result, setResults] = useState(null);
@@ -37,7 +40,10 @@ import { getAll } from '../../services/database';
   
       return (
         <div className="Home">
-          Home sweet home
+         <div className="logo">Protect<span>Me</span></div>
+         
+          <Search1 />
+         
         </div>
         
       );
@@ -48,3 +54,5 @@ import { getAll } from '../../services/database';
   
   
   export default Home;
+
+  

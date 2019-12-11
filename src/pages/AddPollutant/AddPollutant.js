@@ -40,7 +40,7 @@ const AddPollutant = ({ pollutants }) => {
           <FormSelect label="Proteccion Type"  />
  
           <div>
-            <button>Add Pollutant</button>
+            <button onClick = {createPollutant}>Add Pollutant</button>
           </div>
         </form>
       </div>
