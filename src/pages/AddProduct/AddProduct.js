@@ -3,38 +3,37 @@ import React, { useState } from 'react';
 import FormInput from '../../components/FormInput/FormInput';
 import { addItem } from '../../services/database';
 import './AddProduct.scss';
-import { withRouter } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 import FormSelect from '../../components/FormSelect';
+import UploadImage from '../../components/UploadImage/UploadImage';
 
 const AddProduct = ({ products }) => {
-  const [newPro, setNewPro] = useState({ product:'', refNum: 0, proteccion: '', picture: '' });
+  const [newPro, setNewPro] = useState({ product: '', refNum: 0, proteccion: '', picture: '' });
 
   const createProduct = async (event) => {
     event.preventDefault();
     const result = await addItem('product', newPro);
-    setNewPro("");
-    
+    setNewPro('');
+
 
     // if (result) {
     //   fetchPol();
     // }
-  }
+  };
 
 
   const enterPro = (id) => {
-  
     products.push(`/products/${id}`);
 
-    return setNewPro("");
-    
-  }
+    return setNewPro('');
+  };
 
 
   if (newPro === products) {
-    return <div>This Pollutant already exist</div>
+    return <div>This Pollutant already exist</div>;
   }
 
-  return ( 
+  return (
     <>
       <h1>ADD PRODUCT</h1>
       {/* <div className="product-list">
@@ -49,16 +48,18 @@ const AddProduct = ({ products }) => {
         ))}
       </div> */}
       <hr />
-      <div>
+      <div className="forms">
         <form onSubmit={createProduct}>
-          <FormInput label="Product name" value={newPro.product} onChange={value => setNewPro({ ...newPro, product: value })} />
-          <FormInput label="Reference Number" value={newPro.refNum} onChange={value => setNewPro({ ...newPro, refNum: value })} />
-          <FormSelect label="Proteccion Type"  value={newPro.proteccion} onChange={value => setNewPro({ ...newPro, proteccion: value })}/>        
-          <FormInput label="Picture" value={newPro.picture} onChange={value => setNewPro({ ...newPro, picture: value })} />
-   
+
+          <div className="product-name"><FormInput label="Product name" value={newPro.product} onChange={(value) => setNewPro({ ...newPro, product: value })} /></div>
+          <div className="reference-number"><FormInput label="Reference Number" value={newPro.refNum} onChange={(value) => setNewPro({ ...newPro, refNum: value })} /></div>
+          <div className="proteccion-type"><FormSelect label="Proteccion Type" value={newPro.proteccion} onChange={(value) => setNewPro({ ...newPro, proteccion: value })} /></div>
+          <div className="product-picture"><FormInput label="Picture" value={newPro.picture} onChange={(value) => setNewPro({ ...newPro, picture: value })} /></div>
+          <div><UploadImage /></div>
+
           <div>
-            <button onClick = {createProduct}>Add Product</button>
-             
+            <button onClick={createProduct}>Add Product</button>
+
           </div>
         </form>
       </div>
@@ -66,4 +67,4 @@ const AddProduct = ({ products }) => {
   );
 };
 
-export default withRouter(AddProduct)
+export default withRouter(AddProduct);

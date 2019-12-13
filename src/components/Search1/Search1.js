@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../../components/Button/Button';
-import { getAllRealTime, getItem } from '../../services/database';
+import Button from '../Button/Button';
+import { getAllRealTime, getItem, getAllByArray } from '../../services/database';
 import './Search1.scss';
 import pollutantDict from '../../services/pollutantDict';
 
@@ -33,6 +33,7 @@ const Search1 = () => {
     // });
   }, []);
 
+
   const getPollutantByName = async () => {
     const pollutantID = pollutantDict[searchPol];
 
@@ -48,7 +49,8 @@ const Search1 = () => {
 
     setProteccion(pollutant.proteccion);
     // search products by pollutant protection --> ['A', 'P3']:
-    // getPollutantByProtection('products', ['A', 'P3']);
+    const result = await getAllByArray('products', pollutant.proteccion, 'proteccion');
+    setResultPol(result);
   };
 
 
@@ -56,13 +58,16 @@ const Search1 = () => {
     <div>
       <form className="search-form" onSubmit={(e) => handleSubmit(e)}>
         <div>
-          <label>Search Pollutant</label>
-          <input name="search" value={searchPol} onChange={(e) => setSearchPol(e.target.value)} setSearchPollu />
+          <input placeHolder="Introduce a Pollutant..." className="input " name="search" value={searchPol} onChange={(e) => setSearchPol(e.target.value)} setSearchPollu />
         </div>
-        <div>pollutant: {searchPol}</div>
-        <div>protection: {proteccion}</div>
-        <Button>Search</Button>
+        <div className="results">
+          {/* <div className="pollutant-result">Pollutant:<span>{searchPol}</span></div> */}
+          <div className="protection-result">You Need Protection:    <span>{proteccion}</span></div>
+        </div>
+        {!!resultPol.length && <pre>{JSON.stringify(resultPol, null, 3)}</pre>}
+        {/* <Button>Search</Button> */}
       </form>
+
 
       {/* <section className="chat-area">
        <div id="messages" className="messages">

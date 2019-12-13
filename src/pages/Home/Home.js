@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Home.scss';
 import { getAll } from '../../services/database';
-import Search1 from '../Search1/Search1';
+import Search1 from '../../components/Search1/Search1';
 
 // import Search1 from '../Search1';
 
