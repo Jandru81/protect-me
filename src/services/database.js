@@ -89,6 +89,17 @@ async function getItem(collection, itemId) {
   }
   return null;
 }
+async function getItemByField(collection, field, value) {
+  const db = getDbInstance();
+  const querySnapshot = await db.collection(collection).where(field, '==', value).get();
+  // let response = [];
+  let response = {};
+  querySnapshot.forEach((doc) => {
+    // response = [...response, { id: doc.id, ...doc.data() }];
+    response = { id: doc.id, ...doc.data() };
+  });
+  return response;
+}
 
 async function deleteItem(collection, itemId) {
   const db = getDbInstance();
@@ -101,6 +112,7 @@ export {
   getAll,
   addItem,
   getItem,
+  getItemByField,
   getAllRealTime,
   deleteItem,
   addItemWithId,

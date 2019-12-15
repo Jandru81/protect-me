@@ -1,58 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
-import { getAllRealTime, getItem, getAllByArray } from '../../services/database';
+
+import { getAllRealTime, getItem, getAllByArray, getItemByField } from '../../services/database';
 import './Search1.scss';
-import pollutantDict from '../../services/pollutantDict';
 
 
-const Search1 = () => {
+const Search1 = ({ history }) => {
   const [searchPol, setSearchPol] = useState('');
   const [proteccion, setProteccion] = useState('');
   const [resultPol, setResultPol] = useState([]);
+  const [productreco, setProductreco] = useState('');
   const [fileUploadPercent, setFileUploadPercent] = useState('');
-
-
-  useEffect(() => {
-    //   const searchPol = getItem('pollutants', nameEs);
-    //   setSearchPol(searchPol);
-
-    // getAllRealTime({
-    //   collection: 'pollutants',
-    //   filters: { field: 'nameEs', condition: '==', value: 'Alquitrán' },
-    //   order: 'timestamp',
-    //   callback: (collectionData) => {
-    //     const results = [];
-    //     collectionData.forEach((document) => {
-    //       const data = document.data();
-    //       results.push(data);
-    //     });
-    //     setResultPol(results);
-    //     console.log('setResultPol: ', setResultPol);
-    //   }
-    // });
-  }, []);
-
-
-  const getPollutantByName = async () => {
-    const pollutantID = pollutantDict[searchPol];
-
-    const pollutant = await getItem('pollutants', pollutantID);
-    return pollutant;
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // search pollutant protection by id (15sGkKREleMugd61AGAk) --> get one document:
-    const pollutant = await getPollutantByName();
+    const pollutant = await getItemByField('pollutants', 'nameEs', searchPol);
 
     setProteccion(pollutant.proteccion);
     // search products by pollutant protection --> ['A', 'P3']:
-    const result = await getAllByArray('products', pollutant.proteccion, 'proteccion');
-    setResultPol(result);
+
+    if (pollutant.proteccion) {
+      const result = await getAllByArray('products', pollutant.proteccion, 'proteccion');
+      return setResultPol(result);
+    }
+    return console.log('no hay');
   };
 
+  const handleDetail = (id) => {
+    history.push(`product/${id}`);
+  };
 
   return (
     <div>
@@ -64,7 +42,20 @@ const Search1 = () => {
           {/* <div className="pollutant-result">Pollutant:<span>{searchPol}</span></div> */}
           <div className="protection-result">You Need Protection:    <span>{proteccion}</span></div>
         </div>
-        {!!resultPol.length && <pre>{JSON.stringify(resultPol, null, 3)}</pre>}
+        {/* {!!resultPol.length && <pre>{JSON.stringify(resultPol, null, 3)}</pre>} */}
+        <div className="product-result">You Need This Product:
+          {resultPol.map((el, index) => (
+            <div className="product-result-item" key={index}>
+              <div className="product-result-data">
+                <div>product: </div>
+                <div className="product-result-name">{el.product}</div>
+                <div className="product-result-refNum">{el.refNum}</div>
+              </div>
+              <div className="product-result-image"> <img src={el.pictureUrl} alt={el.product} /> </div>
+              <button type="button" onClick={() => handleDetail(el.id)}>Detail</button>
+            </div>
+          ))}
+        </div>
         {/* <Button>Search</Button> */}
       </form>
 

@@ -1,18 +1,13 @@
 import React from 'react';
-import { Label, Input } from 'reactstrap';
+// import { Label, Input } from 'reactstrap';
 
-const FormInput = ({ label, value, onChange, type = 'text', namePlaceHolder }) => {
-  
-  
-  return (
+const FormInput = ({ label, value, onChange, type = 'text', namePlaceHolder }) => (
     <div className="form-field">
-      <Label>{label}</Label>
-      <Input type={type} value={value} placeholder={namePlaceHolder} onChange={event => onChange(event.target.value)}/>
+      <div>{label}</div>
+      <input type={type} value={value} placeholder={namePlaceHolder} onChange={event => onChange(event.target.value)}/>
     </div>
   
   
   );
-}
- 
-export default FormInput;
 
+export default FormInput;

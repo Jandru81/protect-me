@@ -1,12 +1,10 @@
 import React from 'react';
 import Home from './pages/Home/Home';
 import './App.css';
-
-import Search1 from './components/Search1/Search1';
 import AddPollutant from './pages/AddPollutant/AddPollutant';
 import AddProduct from './pages/AddProduct/AddProduct';
-import Header from './components/Header';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import ProductDetail from './components/ProductDetail/ProductDetail';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,28 +25,24 @@ function App() {
       <Router>
         <HeaderTest />
         <Switch>
-          <Route exact path="/"><Home /></Route>
-          <Route path="/addproduct"><AddProduct /></Route>
-          <Route path="/addpollutant"><AddPollutant /></Route>
-          <Route path="/productinfo"><ProtectInfo /></Route>
+          <Route exact path="/" component={Home} />
+          <Route path="/product/:id" component={ProductDetail} />
+          <Route path="/addproduct" component={AddProduct} />
+          <Route path="/addpollutant" component={AddPollutant} />
+          <Route path="/productinfo" component={ProtectInfo} />
         </Switch>
         {/* <footer>footer</footer> */}
       </Router>
-      {/* <Header />
-      <Home />
-      <Content />
-      <AddPollutant pollutants = {pollutants} />
-      <AddProduct products = {products} /> */}
     </div>
   );
 }
 
 const Content = () => (
   <div>
-      <h1>here goes the content</h1>
-      <div>protecció: </div>
-      <div>productes: </div>
-    </div>
+    <h1>here goes the content</h1>
+    <div>protecció: </div>
+    <div>productes: </div>
+  </div>
 );
 
 export default App;

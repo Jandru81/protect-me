@@ -3,7 +3,6 @@ const products = [
     product: 'classic1',
     refNum: '2365',
     proteccion: ['FFP1'],
-    picture: '/classic1.jpg',
     description1: 'FFP1: Partículas, nieblas y humos no tóxicos en base agua o aceite',
     description2: 'Trabajos con partículas, nieblas y humos no tóxicos'
   },

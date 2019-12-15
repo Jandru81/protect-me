@@ -1,48 +1,94 @@
+.input {
 
-.input{
-    
     border-radius: 10px;
     border: 2px solid grey;
     width: 600px;
-     padding: 5px;
-     height: 20px;
-     margin-top: 5%;
-     font-size: 20px;
-     
-}
- 
-.results{
-display: flex;
-margin-top: 20px;
-width: 100%;
-height: 100px;
-flex-direction: column; 
- 
-    
-.pollutant-result{
-    color: #4c4c4c;
-       
-    
+    padding: 5px;
+    height: 20px;
+    margin-top: 5%;
+    font-size: 20px;
 
-    span{
-        color:#5574AA;
-        
-           
-    }    
+}
+
+.results {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    height: 100px;
+    flex-direction: column;
+
+
+    .pollutant-result {
+        color: #4c4c4c;
+
+
+
+        span {
+            color: #5574AA;
+
+
+        }
     }
 
-.protection-result{
-    color: #4c4c4c;
-    text-align: left;
-    margin-left: 233px;
-    font-size: 30px;
+    .protection-result {
+        color: #4c4c4c;
+        text-align: left;
+        margin-left: 233px;
+        font-size: 30px;
 
-    span{
-        color:#5574AA;
-        font-size: 90px;
-        text-align: center;
-    }    
+        span {
+            color: #5574AA;
+            font-size: 90px;
+            text-align: center;
+        }
 
-}    
+
+
+    }
 
 }
+
+.product-result {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-item {
+        margin-top: 10px;
+        text-align: left;
+        display: flex;
+        border: 1px solid lightgray;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 4px lightgrey;
+        width: 60%;
+        justify-content: space-between;
+        align-content: center;
+    }
+
+    .product-result-data{
+        display: flex;
+        flex-direction: column;
+        background-color: lightgray;
+
+        .product-result-name {
+            color: #5574AA;
+        }
+    
+        .product-result-refNum {
+            color: #4c4c4c;
+        }
+    }
+
+
+    .product-result-image {
+        img{
+            max-height: 150px;
+        }
+    }
+
+}
+
+
+    
