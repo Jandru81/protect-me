@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import AddProduct from '../../pages/AddProduct/AddProduct';
 import { getItem } from '../../services/database';
 
 
 const ProductDetail = (props) => {
+  const params = useParams();
   const [product, setProduct] = useState('');
 
   useEffect(() => {
-    const productId = props.match.params.id;
+    // const productId = props.match.params.id;
+    const productId = params.id;
 
     getItem('products', productId).then((item) => {
       setProduct(item);

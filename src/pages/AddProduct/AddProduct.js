@@ -21,7 +21,6 @@ const AddProduct = ({ products }) => {
     newPro.pictureUrl = pictureUrl;
 
     const result = await addItem('products', newPro);
-    console.log('result: ', result);
   };
 
   const handleCheckBox = (prot, isChecked) => {
@@ -36,44 +35,32 @@ const AddProduct = ({ products }) => {
   };
 
   return (
-    <>
+
+    <div className="forms" data-test="component-AddProduct">
       <h1>ADD PRODUCT</h1>
-      {/* <div className="product-list">
-        {products.map(r => (
-          <div role="button" onClick={() => enterPro(r.id)} key={r.id} className="product-list-item">
-            <h3>{r.name}</h3>
-            <div>Product Name: {r.product}</div>
-            <div>Reference Number: {r.refNum}</div>
-            <div>Proteccion: {r.proteccion}</div>
-            <div>Picture: {r.picture}</div>
-          </div>
-        ))}
-      </div> */}
-      <hr />
-      <div className="forms">
-        <form onSubmit={createProduct}>
-          <div className="product-name">
+      <form onSubmit={createProduct}>
+        <div className="product-name">
             <FormInput
               label="Product name"
               value={newPro.product}
               onChange={(value) => setNewPro({ ...newPro, product: value })}
             />
           </div>
-          <div className="reference-number">
+        <div className="reference-number">
             <FormInput
               label="Reference Number"
               value={newPro.refNum}
               onChange={(value) => setNewPro({ ...newPro, refNum: value })}
             />
           </div>
-          <div className="description-1">
+        <div className="description-1">
             <FormInput
               label="Description1"
               value={newPro.description1}
               onChange={(value) => setNewPro({ ...newPro, description1: value })}
             />
           </div>
-          <div className="description-2">
+        <div className="description-2">
             <FormInput
               label="Description2"
               value={newPro.description2}
@@ -81,7 +68,7 @@ const AddProduct = ({ products }) => {
             />
           </div>
 
-          <form onSubmit={createProduct}>
+        <form onSubmit={createProduct}>
 
             {/* <FormSelect label="Proteccion Type" value={newPol.proteccion} onChange={(value) => setNewPol({ ...newPol, proteccion: value })} /> */}
             <checkbox onChange={(event) => handleCheckBox(event.target.value, event.target.checked)}>
@@ -101,10 +88,9 @@ const AddProduct = ({ products }) => {
               <button onClick={createProduct}>Add Product</button>
             </div>
           </form>
-        </form>
-      </div>
-    </>
+      </form>
+    </div>
   );
 };
 
-export default withRouter(AddProduct);
+export default AddProduct;

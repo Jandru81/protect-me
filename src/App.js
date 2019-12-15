@@ -4,7 +4,6 @@ import './App.css';
 import AddPollutant from './pages/AddPollutant/AddPollutant';
 import AddProduct from './pages/AddProduct/AddProduct';
 import ProductDetail from './components/ProductDetail/ProductDetail';
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,7 +20,7 @@ const children = [];
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-test="component-app">
       <Router>
         <HeaderTest />
         <Switch>
@@ -37,12 +36,12 @@ function App() {
   );
 }
 
-const Content = () => (
-  <div>
-    <h1>here goes the content</h1>
-    <div>protecció: </div>
-    <div>productes: </div>
-  </div>
-);
+// const Content = () => (
+//   <div>
+//     <h1>here goes the content</h1>
+//     <div>protecció: </div>
+//     <div>productes: </div>
+//   </div>
+// );
 
 export default App;

@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { getAllRealTime, getItem, getAllByArray, getItemByField } from '../../services/database';
 import './Search1.scss';
 
 
-const Search1 = ({ history }) => {
+const Search1 = () => {
+  const history = useHistory();
   const [searchPol, setSearchPol] = useState('');
   const [proteccion, setProteccion] = useState('');
   const [resultPol, setResultPol] = useState([]);
-  const [productreco, setProductreco] = useState('');
-  const [fileUploadPercent, setFileUploadPercent] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,10 +32,18 @@ const Search1 = ({ history }) => {
   };
 
   return (
-    <div>
+    <div data-test="component-Search1">
       <form className="search-form" onSubmit={(e) => handleSubmit(e)}>
         <div>
-          <input placeHolder="Introduce a Pollutant..." className="input " name="search" value={searchPol} onChange={(e) => setSearchPol(e.target.value)} setSearchPollu />
+          <input
+            placeHolder="Introduce a Pollutant..."
+            className="input "
+            name="search"
+            value={searchPol}
+            onChange={(e) => setSearchPol(e.target.value)}
+            setSearchPollu
+            data-test="input-box"
+          />
         </div>
         <div className="results">
           {/* <div className="pollutant-result">Pollutant:<span>{searchPol}</span></div> */}
@@ -56,27 +63,7 @@ const Search1 = ({ history }) => {
             </div>
           ))}
         </div>
-        {/* <Button>Search</Button> */}
       </form>
-
-
-      {/* <section className="chat-area">
-       <div id="messages" className="messages">
-          {messages.length === 0 && <div>Escribe algo mano</div>}
-          {messages.map((m, i) => (
-            <div key={m.timestamp} className={`messages-item ${isNewMessage && i === messages.length - 1 ? 'new-message' : ''}`}>
-              <div>{m.date} - {m.time}</div>
-              <div>{m.message || <img src={m.file} alt="" />}</div>
-            </div>
-          ))}
-        </div>
-        <div className="new-message-area">
-          <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
-          <button type="button" onClick={handleSendMessage}>Send</button>
-          <input type="file" onChange={handleUploadImage} />
-        </div>
-        <div>{fileUploadPercent}</div>
-      </section> */}
     </div>
   );
 };

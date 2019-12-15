@@ -3,7 +3,7 @@ import './Home.scss';
 import { getAll } from '../../services/database';
 import Search1 from '../../components/Search1/Search1';
 
-function Home(props) {
+function Home() {
   const [result, setResults] = useState(null);
 
   useEffect(() => {
@@ -16,10 +16,10 @@ function Home(props) {
   }, []);
 
   return (
-    <div className="Home">
+    <div className="Home" data-test="component-home">
       <div className="logo">Protect<span>Me</span></div>
 
-      <Search1 {...props} />
+      <Search1 />
 
     </div>
 
