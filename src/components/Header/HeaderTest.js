@@ -10,19 +10,20 @@ const HeaderTest = () => {
   const user = useSelector((state) => state.user);
   const handleLogout = () => {
     logout();
-    history.push('/');
+    history.push('/login');
   };
 
+  const isLogged = user !== null;
 
   return (
 
     <div className="nav-options">
       {/* // <Nav> */}
       <ul className="nav-list">
-        <li><Link to="/">Home</Link> </li>
-        <li><Link to="/addproduct">Add Product</Link></li>
-        <li> <Link to="/addpollutant">Add Pollutant</Link></li>
-        <li><Link to="/productinfo">Protection Info</Link></li>
+        {isLogged && <li><Link to="/home">Home</Link> </li>}
+        {isLogged && <li><Link to="/addproduct">Add Product</Link></li>}
+        {isLogged && <li> <Link to="/addpollutant">Add Pollutant</Link></li>}
+        {isLogged && <li><Link to="/productinfo">Protection Info</Link></li>}
 
         {user
           ? <li>{user.name} <button onClick={handleLogout}>Logout</button></li>

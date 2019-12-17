@@ -48,24 +48,27 @@ function App({ setUserRedux }) {
 
   if (isLoading) return <div>Loading...</div>;
 
-  const defaultRoute = user
-    ? <Route path="/" component={Home} />
-    : <Route path="/" component={Login} />;
+  // const defaultRoute = user
+  // ? <Route path="/" component={Home} />
+  // : <Route path="/" component={Login} />;
+
+
+  const isLogged = user !== null;
 
   return (
     <div className="App" data-test="component-app">
       <Router>
         <HeaderTest />
         <Switch>
-          <Route path="/signup" component={Signup} />
-          <Route path="/" component={Login} />
-          {user && <Route path="/home/:id" component={Home} />}
-          {defaultRoute}
+          {isLogged && <Route path="/home" exact component={Home} />}
+          {!isLogged && <Route path="/signup" component={Signup} />}
+          {!isLogged && <Route path="/login" component={Login} />}
+          {/* {defaultRoute} */}
           {/* <Route exact path="/" component={Home} /> */}
           <Route path="/product/:id" component={ProductDetail} />
           {user && <Route path="/addproduct" component={AddProduct} />}
-          <Route path="/addpollutant" component={AddPollutant} />
-          <Route path="/productinfo" component={ProtectInfo} />
+          {isLogged && <Route path="/addpollutant" component={AddPollutant} />}
+          {isLogged && <Route path="/productinfo" component={ProtectInfo} />}
         </Switch>
         {/* <footer>footer</footer> */}
       </Router>

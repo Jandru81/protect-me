@@ -1,13 +1,17 @@
 .product-detail-item {
     display: flex;
-    border: 1px solid ;
     color: #4c4c4c;
+    width: 80%;
+    margin: 0 auto;
+    background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF 51%, #ECE9E6 100%);
 
     .text-detail {
         
 
         .product-detail {
             color: #5574AA;
+            font-size: 40px;
+            padding-top: 25px;
 
 
         }
@@ -18,11 +22,17 @@
 
         .description1-detail {
             color: #5574AA;
+            font-size: 25px;
 
         }
 
         .description2-detail {
-            color: #4c4c4c
+            color: #4c4c4c;
+            text-align: left;
+            padding: 30px;
+           
+                   
+                
         }
 
     }
@@ -34,6 +44,20 @@
             max-height: 500px;
         }
 
+    }
+
+    button{
+        background-color: #d4e0f5;
+    /* position: relative; */
+    /* bottom: 10px; */
+    right: 0px;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 30px;
     }
 
 }

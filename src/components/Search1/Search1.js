@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-import { getAllRealTime, getItem, getAllByArray, getItemByField } from '../../services/database';
+import { getAllByArray, getItemByField } from '../../services/database';
 import './Search1.scss';
-
 
 const Search1 = () => {
   const history = useHistory();
@@ -16,15 +15,21 @@ const Search1 = () => {
 
     // search pollutant protection by id (15sGkKREleMugd61AGAk) --> get one document:
     const pollutant = await getItemByField('pollutants', 'nameEs', searchPol);
+    // const casNumber = await getItemByField('pollutants', 'casNumber', searchPol);
 
     setProteccion(pollutant.proteccion);
+
     // search products by pollutant protection --> ['A', 'P3']:
 
     if (pollutant.proteccion) {
-      const result = await getAllByArray('products', pollutant.proteccion, 'proteccion');
+      const result = await getAllByArray(
+        'products',
+        pollutant.proteccion,
+        'proteccion'
+      );
       return setResultPol(result);
     }
-    return console.log('no hay');
+    return (<p>no</p>);
   };
 
   const handleDetail = (id) => {
@@ -46,20 +51,30 @@ const Search1 = () => {
           />
         </div>
         <div className="results">
-          {/* <div className="pollutant-result">Pollutant:<span>{searchPol}</span></div> */}
-          <div className="protection-result">You Need Protection:    <span>{proteccion}</span></div>
+          <div className="protection-result">
+            You Need Protection: <span>{proteccion}</span>
+          </div>
         </div>
-        {/* {!!resultPol.length && <pre>{JSON.stringify(resultPol, null, 3)}</pre>} */}
-        <div className="product-result">You Need This Product:
+
+        <div className="product-result">
           {resultPol.map((el, index) => (
             <div className="product-result-item" key={index}>
               <div className="product-result-data">
-                <div>product: </div>
                 <div className="product-result-name">{el.product}</div>
-                <div className="product-result-refNum">{el.refNum}</div>
+                <div className="product-result-proteccion">{el.proteccion}</div>
+                <div className="product-result-refNum">Ref:{el.refNum}</div>
               </div>
-              <div className="product-result-image"> <img src={el.pictureUrl} alt={el.product} /> </div>
-              <button type="button" onClick={() => handleDetail(el.id)}>Detail</button>
+              <div className="product-result-image">
+                {' '}
+                <img src={el.pictureUrl} alt={el.product} />{' '}
+              </div>
+              <button
+                className="product-result-button"
+                type="button"
+                onClick={() => handleDetail(el.id)}
+              >
+                Detail
+              </button>
             </div>
           ))}
         </div>

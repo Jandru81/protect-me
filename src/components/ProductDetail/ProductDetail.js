@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import AddProduct from '../../pages/AddProduct/AddProduct';
 import { getItem } from '../../services/database';
 import './ProductDetail.scss';
 
@@ -8,6 +7,7 @@ import './ProductDetail.scss';
 const ProductDetail = (props) => {
   const params = useParams();
   const [product, setProduct] = useState('');
+
 
   useEffect(() => {
     // const productId = props.match.params.id;
@@ -25,10 +25,10 @@ const ProductDetail = (props) => {
         <div className="image-detail"> <img src={product.pictureUrl} alt={product.product} /> </div>
         <div className="text-detail">
           <div className="product-detail">{product.product}</div>
-          <div className="refNum-detail">Reference: {product.refNum}</div>
           <div className="description1-detail">{product.description1}</div>
-          <div className="description2-detail">{product.description2}</div>
-          <button onClick={() => props.history.push('/')}>go home</button>
+          <div className="refNum-detail">Ref: {product.refNum}</div>
+          <div style={{ whiteSpace: 'pre-wrap' }} className="description2-detail">{product.description2}</div>
+          <button onClick={() => props.history.push('/home')}>Back to Products</button>
 
         </div>
       </div>

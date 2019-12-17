@@ -21,7 +21,7 @@ const Login = () => {
     } else {
       const result = await login(email, password);
       if (result) {
-        history.push('/');
+        history.push('/home');
       }
     }
   };

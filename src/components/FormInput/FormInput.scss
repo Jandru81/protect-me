@@ -7,17 +7,15 @@
 //      font-size: px;
 // }
 
-// .input {
-//     display: inline-block;
-//   min-width: 100px;
-//     border-radius: 10px;
-//     border: 2px solid grey;
-//     width: 600px;
-//     padding: 5px;
-//     height: 20px;
-//     margin-top: 5%;
-//     font-size: 20px;
-    
+ input[type=text] {
 
-
-// }
+    border-radius: 10px;
+    border: 2px solid grey;
+    width: 600px;
+    padding: 5px;
+    height: 35px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    font-size: 20px;
+    padding: 5px 20px;
+ }
