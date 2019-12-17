@@ -1,8 +1,8 @@
 import firebase from 'firebase';
 
 function signup(email, password) {
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    console.log("TCL: signup -> error", error)
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch((error) => {
+    console.log('TCL: signup -> error', error);
   });
 }
 
@@ -25,4 +25,4 @@ export {
   logout,
   login,
   registerAuthObserver
-}
+};

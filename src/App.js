@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from './pages/Home/Home';
 import './App.css';
 import AddPollutant from './pages/AddPollutant/AddPollutant';
@@ -11,22 +11,59 @@ import {
 } from 'react-router-dom';
 import ProtectInfo from './pages/ProtecInfo';
 import HeaderTest from './components/Header/HeaderTest';
+import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
+import { registerAuthObserver } from './services/auth';
+import { connect, useSelector } from 'react-redux';
+import { getItem } from './services/database';
+import { setUser } from './redux/actions/userActions';
 
 // import Search from './pages/search';
 
-const pollutants = [];
-const products = [];
-const children = [];
+function App({ setUserRedux }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const user = useSelector((state) => state.user);
 
-function App() {
+  useEffect(() => {
+    const cancelObserver = registerAuthObserver(async (user) => {
+      console.log('TCL: cancelObserver -> user', user);
+      if (user) {
+        const profile = await getItem('profiles', user.uid);
+        console.log('TCL: cancelObserver -> profile', profile);
+        if (profile) {
+          setUserRedux(profile);
+        } else {
+          console.log('todavía se está registrando');
+        }
+      } else {
+        setUserRedux(null);
+      }
+      setIsLoading(false);
+    });
+
+    return () => {
+      cancelObserver();
+    };
+  }, []);
+
+  if (isLoading) return <div>Loading...</div>;
+
+  const defaultRoute = user
+    ? <Route path="/" component={Home} />
+    : <Route path="/" component={Login} />;
+
   return (
     <div className="App" data-test="component-app">
       <Router>
         <HeaderTest />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/" component={Login} />
+          {user && <Route path="/home/:id" component={Home} />}
+          {defaultRoute}
+          {/* <Route exact path="/" component={Home} /> */}
           <Route path="/product/:id" component={ProductDetail} />
-          <Route path="/addproduct" component={AddProduct} />
+          {user && <Route path="/addproduct" component={AddProduct} />}
           <Route path="/addpollutant" component={AddPollutant} />
           <Route path="/productinfo" component={ProtectInfo} />
         </Switch>
@@ -36,6 +73,12 @@ function App() {
   );
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  setUserRedux: (user) => dispatch(setUser(user))
+});
+
+export default connect(null, mapDispatchToProps)(App);
+
 // const Content = () => (
 //   <div>
 //     <h1>here goes the content</h1>
@@ -44,4 +87,4 @@ function App() {
 //   </div>
 // );
 
-export default App;
+// export default App;

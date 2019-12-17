@@ -46,7 +46,7 @@ const AddPollutant = ({ pollutants }) => {
           <FormInput label="CAS Number" value={newPol.casNumber} onChange={(value) => setNewPol({ ...newPol, casNumber: value })} />
           {/* <FormSelect label="Proteccion Type" value={newPol.proteccion} onChange={(value) => setNewPol({ ...newPol, proteccion: value })} /> */}
           <checkbox onChange={(event) => handleCheckBox(event.target.value, event.target.checked)}>
-
+            <div>Protection</div>
             <input type="checkbox" value="FFP1" /> FFP1
             <input type="checkbox" value="FFP2" /> FFP2
             <input type="checkbox" value="FFP3" /> FFP3

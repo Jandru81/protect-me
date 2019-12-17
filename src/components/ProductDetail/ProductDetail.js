@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import AddProduct from '../../pages/AddProduct/AddProduct';
 import { getItem } from '../../services/database';
+import './ProductDetail.scss';
 
 
 const ProductDetail = (props) => {
@@ -19,12 +20,17 @@ const ProductDetail = (props) => {
 
   return (
     <div>
-      <div className="product-result-item">
-        <div>product: </div>
-        <div>{product.product}</div>
-        <div>{product.refNum}</div>
-        <div>{product.pictureUrl}</div>
-        <button onClick={() => props.history.push('/')}>go home</button>
+      <div className="product-detail-item">
+        {/* <div>product: </div> */}
+        <div className="image-detail"> <img src={product.pictureUrl} alt={product.product} /> </div>
+        <div className="text-detail">
+          <div className="product-detail">{product.product}</div>
+          <div className="refNum-detail">Reference: {product.refNum}</div>
+          <div className="description1-detail">{product.description1}</div>
+          <div className="description2-detail">{product.description2}</div>
+          <button onClick={() => props.history.push('/')}>go home</button>
+
+        </div>
       </div>
     </div>
   );
