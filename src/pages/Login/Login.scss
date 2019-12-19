@@ -2,9 +2,12 @@
     position: relative;
     width: 400px;
     margin: 5% auto;
-    border: 1px solid darkslateblue;
     padding: 13% 10% 10%;
-    box-shadow: 0 0 10px 0px black;
+  
+    .email{
+color: red;
+
+    };
   
     .form-error {
       position: absolute;
@@ -14,5 +17,36 @@
       padding: 3%;
       text-align: center;
       color: tomato;
+    }
+  }
+
+  .login{
+
+    background-color: #d4e0f5;
+    right: 0px;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+  }
+
+  .logo-login{
+
+    color: #5574AA;
+    font-size: 80px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: -84px;
+    margin-bottom: 70px;
+    span{
+
+        color: #4c4c4c;
+        font-size: 80px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
   }

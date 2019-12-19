@@ -56,14 +56,14 @@ const AddProduct = ({ products }) => {
         </div>
         <div className="description-1">
           <FormInput
-            label="Description1"
+            label="Tittle"
             value={newPro.description1}
             onChange={(value) => setNewPro({ ...newPro, description1: value })}
           />
         </div>
         <div className="description-2">
           <TextArea
-            label="Description2"
+            label="Description"
             value={newPro.description2}
             onChange={(value) => setNewPro({ ...newPro, description2: value })}
           />
@@ -72,8 +72,8 @@ const AddProduct = ({ products }) => {
         <form onSubmit={createProduct}>
 
           {/* <FormSelect label="Proteccion Type" value={newPol.proteccion} onChange={(value) => setNewPol({ ...newPol, proteccion: value })} /> */}
-          <checkbox onChange={(event) => handleCheckBox(event.target.value, event.target.checked)}>
-
+          <checkbox className="checkbox" onChange={(event) => handleCheckBox(event.target.value, event.target.checked)}>
+            <p className="protection">Protection</p>
             <input type="checkbox" value="FFP1" /> FFP1
             <input type="checkbox" value="FFP2" /> FFP2
             <input type="checkbox" value="FFP3" /> FFP3
@@ -84,9 +84,9 @@ const AddProduct = ({ products }) => {
             <input type="checkbox" value="ABE" /> ABE
             <input type="checkbox" value="ABEK" /> ABEK
           </checkbox>
-          <div><UploadImage setPictureUrl={setPictureUrl} /></div>
+          <div className="upload-image">Upload Image<UploadImage setPictureUrl={setPictureUrl} /></div>
           <div>
-            <button onClick={createProduct}>Add Product</button>
+            <button className="button-add-product" onClick={createProduct}>ADD Product</button>
           </div>
         </form>
       </form>

@@ -1,18 +1,34 @@
-.form-container{
-    position: relative;
-    width: 400px;
-    margin: 5% auto;
-    border: 1px solid darkslateblue;
-    padding: 13% 10% 10%;
-    box-shadow: 0 0 10px 0px black;
-  
-    .form-error {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 3%;
-      text-align: center;
-      color: tomato;
-    }
+.form-container {
+  position: relative;
+  width: 400px;
+  margin: 5% auto;
+  border: 1px solid darkslateblue;
+  padding: 13% 10% 10%;
+  box-shadow: 0 0 10px 0px black;
+
+  .form-error {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 3%;
+    text-align: center;
+    color: tomato;
   }
+
+  .button-registrar {
+    background-color: #d4e0f5;
+    right: 0px;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+  }
+
+}

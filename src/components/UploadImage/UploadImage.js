@@ -12,7 +12,7 @@ function UploadImage({ setPictureUrl }) {
   };
   return (
     <div>
-      <input type="file" onChange={handleUploadImage} />
+      <input className="tria-fitxer" type="file" onChange={handleUploadImage} />
       <p>{fileUploadPercent}</p>
     </div>
   );

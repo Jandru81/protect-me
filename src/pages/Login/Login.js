@@ -28,9 +28,11 @@ const Login = () => {
 
   return (
     <section className="form-container">
+      <div className="logo-login">Protect<span>Me</span></div>
       {error && <div className="form-error">{error}</div>}
       <form onSubmit={handleSubmitForm}>
         <FormInput
+          type="email"
           label="Email"
           value={formData.email}
           onChange={(value) => setFormData({ ...formData, email: value })}
@@ -41,7 +43,7 @@ const Login = () => {
           value={formData.password}
           onChange={(value) => setFormData({ ...formData, password: value })}
         />
-        <button>Login</button>
+        <button className="login">Login</button>
       </form>
     </section>
   );

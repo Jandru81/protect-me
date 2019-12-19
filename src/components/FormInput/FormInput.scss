@@ -1,12 +1,16 @@
-// .form-field {
-//     border-radius: 10px;
-//     width: 60px;
-//      padding: 5px;
-//      height: 10px;
-//      margin-top: 5%;
-//      font-size: px;
-// }
+    .form-field {
 
+      margin-bottom: -21px;
+    
+    }
+
+    // input{
+
+    //     width: 400px;
+    // }
+
+
+    
  input[type=text] {
 
     border-radius: 10px;
@@ -19,3 +23,43 @@
     font-size: 20px;
     padding: 5px 20px;
  }
+
+ input[type=name]{
+
+    border-radius: 10px;
+    border: 2px solid grey;
+    width: 400px;
+    padding: 5px;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    font-size: 20px;
+    padding: 5px 20px;
+ }
+
+ input[type=email]{
+
+    border-radius: 10px;
+    border: 2px solid grey;
+    width: 400px;
+    padding: 5px;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    font-size: 20px;
+    padding: 5px 20px;
+ }
+
+ input[type=password]{
+    border-radius: 10px;
+    border: 2px solid grey;
+    width: 400px;
+    padding: 5px;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    font-size: 20px;
+    padding: 5px 20px;
+
+ }
+

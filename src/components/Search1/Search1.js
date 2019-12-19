@@ -7,7 +7,7 @@ import './Search1.scss';
 const Search1 = () => {
   const history = useHistory();
   const [searchPol, setSearchPol] = useState('');
-  const [proteccion, setProteccion] = useState('');
+  const [proteccion, setProteccion] = useState(' ');
   const [resultPol, setResultPol] = useState([]);
 
   const handleSubmit = async (e) => {
@@ -29,7 +29,7 @@ const Search1 = () => {
       );
       return setResultPol(result);
     }
-    return (<p>no</p>);
+    return console.log('no hay');
   };
 
   const handleDetail = (id) => {
@@ -42,7 +42,7 @@ const Search1 = () => {
         <div>
           <input
             placeHolder="Introduce a Pollutant..."
-            className="input "
+            className="input-search"
             name="search"
             value={searchPol}
             onChange={(e) => setSearchPol(e.target.value)}
@@ -61,7 +61,7 @@ const Search1 = () => {
             <div className="product-result-item" key={index}>
               <div className="product-result-data">
                 <div className="product-result-name">{el.product}</div>
-                <div className="product-result-proteccion">{el.proteccion}</div>
+                {/* <div className="product-result-proteccion">{el.proteccion}</div> */}
                 <div className="product-result-refNum">Ref:{el.refNum}</div>
               </div>
               <div className="product-result-image">

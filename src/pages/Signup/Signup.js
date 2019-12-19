@@ -52,15 +52,18 @@ const Signup = () => {
 
   return (
     <section className="form-container">
+      <div className="logo-login">Protect<span>Me</span></div>
       {error && <div className="form-error">{error}</div>}
       <form onSubmit={handleSubmitForm}>
         <FormInput
           label="Name"
+          type="name"
           value={formData.name}
           onChange={(value) => setFormData({ ...formData, name: value })}
         />
         <FormInput
           label="Email"
+          type="email"
           value={formData.email}
           onChange={(value) => setFormData({ ...formData, email: value })}
         />
@@ -70,7 +73,7 @@ const Signup = () => {
           value={formData.password}
           onChange={(value) => setFormData({ ...formData, password: value })}
         />
-        <button>Registrar</button>
+        <button className="button-registrar">Registrar</button>
       </form>
     </section>
   );

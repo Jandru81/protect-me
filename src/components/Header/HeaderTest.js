@@ -23,10 +23,10 @@ const HeaderTest = () => {
         {isLogged && <li><Link to="/home">Home</Link> </li>}
         {isLogged && <li><Link to="/addproduct">Add Product</Link></li>}
         {isLogged && <li> <Link to="/addpollutant">Add Pollutant</Link></li>}
-        {isLogged && <li><Link to="/productinfo">Protection Info</Link></li>}
+        {/* {isLogged && <li><Link to="/productinfo">Protection Info</Link></li>} */}
 
         {user
-          ? <li>{user.name} <button onClick={handleLogout}>Logout</button></li>
+          ? <li className="button-logout">{user.name} <button onClick={handleLogout}>   Logout</button></li>
           : (
             <>
               <li><Link to="/signup">Signup</Link></li>

@@ -28,7 +28,7 @@ const ProductDetail = (props) => {
           <div className="description1-detail">{product.description1}</div>
           <div className="refNum-detail">Ref: {product.refNum}</div>
           <div style={{ whiteSpace: 'pre-wrap' }} className="description2-detail">{product.description2}</div>
-          <button onClick={() => props.history.push('/home')}>Back to Products</button>
+          <button className="button-back" onClick={() => props.history.push('/home')}>Back to Products</button>
 
         </div>
       </div>

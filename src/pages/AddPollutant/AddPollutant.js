@@ -39,14 +39,18 @@ const AddPollutant = ({ pollutants }) => {
     <>
       <h1>ADD POLLUTANT</h1>
 
-      <hr />
+
       <div>
         <form onSubmit={createPollutant}>
-          <FormInput label="Pollutant name" value={newPol.nameES} onChange={(value) => setNewPol({ ...newPol, nameES: value })} />
-          <FormInput label="CAS Number" value={newPol.casNumber} onChange={(value) => setNewPol({ ...newPol, casNumber: value })} />
+          <div className="pollutant">
+            <FormInput label="Pollutant Name" value={newPol.nameES} onChange={(value) => setNewPol({ ...newPol, nameES: value })} />
+          </div>
+          <div className="reference-number">
+            <FormInput label="CAS Number" value={newPol.casNumber} onChange={(value) => setNewPol({ ...newPol, casNumber: value })} />
+          </div>
           {/* <FormSelect label="Proteccion Type" value={newPol.proteccion} onChange={(value) => setNewPol({ ...newPol, proteccion: value })} /> */}
-          <checkbox onChange={(event) => handleCheckBox(event.target.value, event.target.checked)}>
-            <div>Protection</div>
+          <checkbox className="checkbox" onChange={(event) => handleCheckBox(event.target.value, event.target.checked)}>
+            <div className="protection">Protection</div>
             <input type="checkbox" value="FFP1" /> FFP1
             <input type="checkbox" value="FFP2" /> FFP2
             <input type="checkbox" value="FFP3" /> FFP3
@@ -58,7 +62,7 @@ const AddPollutant = ({ pollutants }) => {
             <input type="checkbox" value="ABEK" /> ABEK
           </checkbox>
           <div>
-            <button onClick={createPollutant}>Add Pollutant</button>
+            <button className="button-add-pollutant" onClick={createPollutant}>ADD Pollutant</button>
           </div>
         </form>
       </div>
