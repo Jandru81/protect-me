@@ -1,11 +1,12 @@
-PROTECTME
+# PROTECTME
 
-##TARGET
+## TARGET
 
 This project is a pollutant search engine, designed to find which protection you need for a specific pollutant. Intended to help the sellers to recommend which protection is suitable. It could work too, as a marketing tool for masks manufacturers.
 
 
-TECHNOLOGIES
+### TECHNOLOGIES
+
 | Transversal      | Server-side | Client-side | Testing |
 | ---------------- | ----------- | ----------- | ------- |
 | Javascript (ES6) | Firebase    | React       | Jest    |
@@ -15,7 +16,7 @@ TECHNOLOGIES
 
 Other: Trello, Git & Github, Miro.
 
-##Functional description:
+## Functional description:
 
 In this application user can search a different types of pollutants, they will see which protection has this pollutant and the recommended masks that they will need to be protected. The user can see the detail of each mask protection. Also, they can add new pollutants and new products (masks). Finally, in order to be able to search the pollutants, users will have to be registered and logged first.
 
@@ -35,27 +36,28 @@ In the diagram below we can see the schemas used, its properties and how are the
 
 
 
-##DESIGN (screenshots)
+## DESIGN (screenshots)
 
-#Home Page
+# Home Page
 
 ![home](https://github.com/Jandru81/protect-me/blob/login1/imageRM/home.png)
 
-#Home Page Results
+# Home Page Results
 
 ![home-result](https://github.com/Jandru81/protect-me/blob/login1/imageRM/home-list.png)
 
-#Detail Page
+# Detail Page
 
 ![detail-page](https://github.com/Jandru81/protect-me/blob/login1/imageRM/detail.png)
-#Add Prodcut Page
+
+# Add Prodcut Page
 
 ![addProduct](https://github.com/Jandru81/protect-me/blob/login1/imageRM/add-porduct.png)
 
-#Add Pollutant Page
+# Add Pollutant Page
 
 ![addPollutant](https://github.com/Jandru81/protect-me/blob/login1/imageRM/add-pollutant.png)
 
-#Log In
+# Log In
 
 ![addPollutant](https://github.com/Jandru81/protect-me/blob/login1/imageRM/login.png)
