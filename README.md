@@ -6,10 +6,11 @@ This project is a pollutant search engine, designed to find which protection you
 
 
 TECHNOLOGIES
-##Transversal##	    | ##Server-side##| ##Client-side## | ##Testing## |
-Agile Methodology   |	Firebase     |	React Hooks    | cypress     |     
-javascript (E5, E6)	|                |   	CSS3       |	         
-HTML	                             |	    SASS       |
+| Transversal      | Server-side | Client-side | Testing |
+| ---------------- | ----------- | ----------- | ------- |
+| Javascript (ES6) | Firebase    | React       | Jest    |
+| HTML             |             | CSS3        | Enzime  |
+|                  |             | SASS        |         |
 
 
 Other: Trello, Git & Github, Miro.
@@ -29,7 +30,7 @@ Technical description:
 DATA MODEL
 In the diagram below we can see the schemas used, its properties and how are they interlinked in between each other. This structures were constructed prior to the server-side functional logic.
 
-[data-model](https://github.com/Jandru81/protect-me/blob/login1/imageRM/data-model.jpg
+![data-model](https://github.com/Jandru81/protect-me/blob/login1/imageRM/data-model.jpg
 
 
 
