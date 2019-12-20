@@ -30,7 +30,7 @@ Technical description:
 DATA MODEL
 In the diagram below we can see the schemas used, its properties and how are they interlinked in between each other. This structures were constructed prior to the server-side functional logic.
 
-![data-model](https://github.com/Jandru81/protect-me/blob/login1/imageRM/data-model.jpg
+![data-model](https://github.com/Jandru81/protect-me/blob/login1/imageRM/data-model.jpg)
 
 
 
@@ -39,24 +39,23 @@ In the diagram below we can see the schemas used, its properties and how are the
 
 #Home Page
 
-DESIGN (screenshots)
+![home](https://github.com/Jandru81/protect-me/blob/login1/imageRM/home.png)
 
 #Home Page Results
 
-DESIGN (screenshots)
+![home-result](https://github.com/Jandru81/protect-me/blob/login1/imageRM/home-list.png)
 
 #Detail Page
 
-DESIGN (screenshots)
-
+![detail-page](https://github.com/Jandru81/protect-me/blob/login1/imageRM/detail.png)
 #Add Prodcut Page
 
-DESIGN (screenshots)
+![addProduct](https://github.com/Jandru81/protect-me/blob/login1/imageRM/add-porduct.png)
 
 #Add Pollutant Page
 
-DESIGN (screenshots)
+![addPollutant](https://github.com/Jandru81/protect-me/blob/login1/imageRM/add-pollutant.png)
 
 #Log In
 
-DESIGN (screenshots)
+![addPollutant](https://github.com/Jandru81/protect-me/blob/login1/imageRM/login.png)
