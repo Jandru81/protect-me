@@ -7,8 +7,7 @@ import './AddPollutant.scss';
 import FormSelect from '../../components/FormSelect';
 
 const AddPollutant = ({ pollutants }) => {
-  const [addPol, fetchPol] = useGetAll('pollutants');
-  const [newPol, setNewPol] = useState({ nameES: '', casNumber: 0, proteccion: '' });
+  const [newPol, setNewPol] = useState({ nameEs: '', casNumber: 0, proteccion: '' });
   const [protSelected, setProtSelected] = useState([]);
 
 
@@ -18,18 +17,17 @@ const AddPollutant = ({ pollutants }) => {
     newPol.proteccion = protSelected;
 
     const result = await addItem('pollutants', newPol);
-    console.log('result: ', result);
   };
 
   const handleCheckBox = (prot, isChecked) => {
     if (isChecked) {
       const protections = [...protSelected, prot];
-      console.log('protections: ', protections);
+
 
       setProtSelected(protections);
     } else {
       const protections = protSelected.filter((el) => el !== prot);
-      console.log('protections: ', protections);
+
       setProtSelected(protections);
     }
   };
@@ -43,10 +41,18 @@ const AddPollutant = ({ pollutants }) => {
       <div>
         <form onSubmit={createPollutant}>
           <div className="pollutant">
-            <FormInput label="Pollutant Name" value={newPol.nameES} onChange={(value) => setNewPol({ ...newPol, nameES: value })} />
+            <FormInput
+              label="Pollutant Name"
+              value={newPol.nameES}
+              onChange={(value) => setNewPol({ ...newPol, nameEs: value })}
+            />
           </div>
           <div className="reference-number">
-            <FormInput label="CAS Number" value={newPol.casNumber} onChange={(value) => setNewPol({ ...newPol, casNumber: value })} />
+            <FormInput
+              label="CAS Number"
+              value={newPol.casNumber}
+              onChange={(value) => setNewPol({ ...newPol, casNumber: value })}
+            />
           </div>
           {/* <FormSelect label="Proteccion Type" value={newPol.proteccion} onChange={(value) => setNewPol({ ...newPol, proteccion: value })} /> */}
           <checkbox className="checkbox" onChange={(event) => handleCheckBox(event.target.value, event.target.checked)}>
